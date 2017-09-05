@@ -1,0 +1,22 @@
+# -*- coding: utf-8 -*-
+'''
+Copyright © 2017, ACM@UIUC
+FoodButton is open source software, released under the University of
+Illinois/NCSA Open Source License.  You should have received a copy of
+this license in a file with the distribution.
+'''
+
+'''
+This is a template file, please duplicate this file and 
+fill in the fields with your keys
+
+NEVER COMMIT YOUR API KEYS IN GIT (config.py will be ignored by git)
+'''
+
+twitter_credentials = {
+    "consumer_key" : "MY CONSUMER KEY",
+    "consumer_secret" : "MY CONSUMER SECRET",
+    "access_token" : "MY ACCESS TOKEN",
+    "access_token_secret" : "MY ACCESS TOKEN SECRET"
+}
+

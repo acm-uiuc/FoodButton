@@ -1,36 +1,32 @@
-from constants import consumer_key
-from constants import consumer_secret
-from constants import access_token
-from constants import access_token_secret
+# -*- coding: utf-8 -*-
+'''
+Copyright © 2017, ACM@UIUC
+FoodButton is open source software, released under the University of
+Illinois/NCSA Open Source License.  You should have received a copy of
+this license in a file with the distribution.
+'''
+
+import config
+from serviceapis import TwitterAPI
 from PIL import Image
-import tweepy
 
-def get_api(cfg):
-    auth = tweepy.OAuthHandler(cfg['consumer_key'], cfg['consumer_secret'])
-    auth.set_access_token(cfg['access_token'], cfg['access_token_secret'])
-    return tweepy.API(auth)
+TWEET_TEXT = "Free food in ACM - Siebel Center 1104"
 
-def get_pic():
-	img = "picture.jpeg"
-	return img
+def load_img_from_fs(path):
+    '''
+    Dummy function 
+    Gives path to picture from the filesystem,
+    returns file object 
+
+    will be replaced by an interface to PI camera
+    '''
+    return Image.open(path)
+
 
 def main():
-
-    cfg = {
-    	"consumer_key": consumer_key,
-    	"consumer_secret": consumer_secret,
-    	"access_token": access_token,
-    	"access_token_secret": access_token_secret
-    }
-
-    img = get_pic()
-
-    api = get_api(cfg)
-    tweet = "Free food @ ACM Siebel Centre"
-    try :
-    	api.update_with_media(img, status=tweet)
-    except tweepy.TweepError as tweepError:
-    	print (tweepError.reason)
-
+    with TwitterAPI(config.twitter_credentials) as TWITTER_API: #TODO: Make this better
+        img = load_img_from_fs("picture.jpeg")
+        TWITTER_API.post(img, TWEET_TEXT)
+   
 if __name__ == "__main__":
     main()
