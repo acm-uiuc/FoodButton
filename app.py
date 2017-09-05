@@ -10,6 +10,10 @@ def get_api(cfg):
     auth.set_access_token(cfg['access_token'], cfg['access_token_secret'])
     return tweepy.API(auth)
 
+def get_pic():
+	img = "picture.jpeg"
+	return img
+
 def main():
 
     cfg = {
@@ -19,10 +23,10 @@ def main():
     	"access_token_secret": access_token_secret
     }
 
-    img = "picture.jpeg"
+    img = get_pic()
 
     api = get_api(cfg)
-    tweet = "Test tweet 1"
+    tweet = "Free food @ ACM Siebel Centre"
     try :
     	api.update_with_media(img, status=tweet)
     except tweepy.TweepError as tweepError:
