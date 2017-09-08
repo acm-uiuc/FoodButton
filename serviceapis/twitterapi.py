@@ -26,6 +26,6 @@ class TwitterAPI(ServiceAPI):
         try:
             filename = "/tmp/food_on_table_{}.png".format(datetime.now())
             img.save(filename)
-            self.api.update_status(status=text)
+            self.api.update_with_media(filename, status=text)
         except tweepy.TweepError as tweepError:
             logging.error(msg="Error occured while tweeting image: " + tweepError.reason)
