@@ -19,4 +19,3 @@ twitter_credentials = {
     "access_token" : "MY ACCESS TOKEN",
     "access_token_secret" : "MY ACCESS TOKEN SECRET"
 }
-
