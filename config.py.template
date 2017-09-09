@@ -18,4 +18,5 @@ twitter_credentials = {
     "consumer_secret" : "MY CONSUMER SECRET",
     "access_token" : "MY ACCESS TOKEN",
     "access_token_secret" : "MY ACCESS TOKEN SECRET"
+    "log_file" : "/tmp/twitter_food_button.log"
 }
